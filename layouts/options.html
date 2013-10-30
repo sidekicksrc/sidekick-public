@@ -1,0 +1,4 @@
+<div class=option ng-repeat="option in options" ng-click="select(option,$event)">
+  <label for="{{ managingOption }}-{{ option.id }}">{{ option.name }}</label>
+  <input ng-checked='itemChecked(option)' name="{{ managingOption }}" type="{{ option.type }}" value="{{ option.id }}" id="{{ managingOption }}-{{ option.id }}" />
+</div>

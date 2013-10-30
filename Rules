@@ -1,0 +1,116 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+@config[:base_url] = ENV["BASE_URL"] if ENV["BASE_URL"]
+@config[:domain] = ENV["DOMAIN"] if ENV["DOMAIN"]
+
+require "pry"
+
+preprocess do
+end
+
+compile "/sass/style" do
+  filter :sass
+end
+route "/sass/style" do
+  item.identifier.gsub("/sass/","/css/").chop + ".css"
+end
+route '/sass/_*' do
+  # ignore
+  nil
+end
+
+compile '/coffee/*' do
+  filter :coffeescript
+end
+route '/coffee/*' do
+  item.identifier.gsub("/coffee/","/js/").chop + ".js"
+end
+
+class Nanoc::RuleContext
+  def post_or_page(item,the_layout = "post")
+    if item[:filter]
+      filter *item[:filter]
+    else
+      case item[:extension]
+      when "kram"
+        filter :kramdown, coderay_line_numbers: nil
+        filter :erb
+      end
+    end
+    layout the_layout
+  end
+end
+
+compile '/quality/*' do 
+  post_or_page(item,"post")
+end
+compile '/metrics/*' do 
+  post_or_page(item,"post")
+end
+compile '/lint/*' do 
+  post_or_page(item,"post")
+end
+
+compile '/pages/*' do 
+  post_or_page(item,"page")
+end
+compile '/posts/*' do 
+  post_or_page(item)
+end
+
+route '/posts/*' do
+  if item[:published]
+    "/post/#{slug item}/index.html"
+  else
+    nil
+  end
+end
+
+route '/pages/*' do
+  if item[:published]
+    "/#{slug item}/index.html"
+  else
+    nil
+  end
+end
+
+compile '*' do
+  if item.binary?
+    # don’t filter binary items
+  else
+    filter item[:filter] || :erb
+    layout item[:layout] || 'default'
+  end
+end
+
+route '*' do
+  if item.binary?
+    if !item[:extension]
+      item.identifier.chop
+    elsif "." + item.identifier.chop[-item[:extension].length..-1] == "." + item[:extension]
+      item.identifier.chop 
+    else
+      # Write item with identifier /foo/ to /foo.ext
+      item.identifier.chop + '.' + item[:extension]
+    end
+  else
+    # Write item with identifier /foo/ to /foo/index.html
+    item.identifier + 'index.html'
+  end
+end
+
+
+layout '*', :erb

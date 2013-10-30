@@ -1,0 +1,109 @@
+$bordered: "textarea, input[type=text], input[type=email], input[type=password], input[type=url]"
+.full
+  padding: 0
+  max-width: 960px
+  input, textarea, select, label, button
+    width: 100%
+    height: $vunit
+    font-size: 1.5rem
+    display: block
+    padding: 2rem $ui-hpadding
+    font-weight: 300
+  textarea
+    height: 3 * $vunit
+  #{$bordered}
+    border: 2px solid #e5e5e5
+    border-width: 2px 0
+    background: hsl(59,3%,99%)
+    cursor: pointer
+
+  input[type=submit], button
+    background: #ddd
+    border: none
+    cursor: pointer
+    &:hover
+      background: #eaeaea
+    margin-top: $vunit/2
+
+  .grouped
+    height: $vunit / 2
+    font-size: 1.25rem
+    padding: 0.75rem $ui-hpadding
+    border-bottom: 2px solid #e5e5e5
+    cursor: pointer
+    &:hover
+      background: $grey
+
+  .heading
+    border-bottom: 2px solid #e5e5e5
+
+  .option
+    overflow: hidden
+    cursor: pointer
+    &:hover
+      background: $grey
+    label
+      width: 50%
+      float: left
+      cursor: pointer
+      padding-top: $vunit/8
+      padding-bottom: $vunit/8
+      height: $vunit/2
+
+      
+  input[type=checkbox], input[type=radio]
+    font-size: 2.5rem
+    &::after
+      display: block
+      content: ""
+      padding-top: .8rem
+      line-height: 1rem
+      color: #fff
+      height: ($vunit / 2) - 0.15rem
+      width: $vunit
+      background: $contrast
+    &:checked::after
+      content: "X"
+    border: none
+    cursor: pointer
+    display: block
+    float: right
+    height: ($vunit / 2) - 0.15rem
+    width: $vunit
+    overflow: hidden
+    text-align: center
+    padding: $vunit / 2
+  input[type=radio]
+    &::after
+      content: "○"
+    &:checked::after
+      content: "●"
+  .heading
+    margin-top: $vunit/2
+    border-top: 2px solid #e5e5e5
+    &:first-child
+      margin-top: 0
+      border-top: none
+  #{$bordered}
+    border-top: none
+  .alert
+    background: $contrast
+    color: #fff
+    padding: 1rem
+    height: $vunit 
+    margin: $vunit /2  0 0 0
+    padding: 2rem $ui-hpadding
+    font-size: 1.25rem
+  
+textarea.full
+  display: block
+  width: 100%
+  border: 2px solid #e5e5e5
+  height: $vunit
+  overflow: hidden
+  font-size: 1.125rem
+  margin: 1rem 0
+  padding: 1rem 0
+
+textarea.raw
+  font-family: monospace

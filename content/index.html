@@ -1,0 +1,25 @@
+---
+title: Javascript metrics, code-quality and linting
+---
+<section id=front>
+  <header>
+    <h1>Javascript metrics, code-quality and linting</h1>
+  </header>
+
+
+  <% @items['/sections/'][:sections].each do |id,section| %>
+    <section id='<%= id %>'>
+      <h2><%= section[:title] %></h2>
+      <div>
+        <%= section[:body] %>
+        <h3>Articles</h3>
+        <ul>
+          <% section_articles(id).each do |item| %>
+            <li><a href="<%= item.identifier %>"><%= item[:title] %></a></li>
+          <% end %>
+        </ul>
+      </div>
+    </section>
+  <% end %>
+
+</section>
