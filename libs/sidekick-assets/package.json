@@ -1,0 +1,28 @@
+{
+  "name": "sidekick-assets",
+  "version": "0.0.0",
+  "description": "Frontend assets for sidekick",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SidekickJS/sidekick-assets.git"
+  },
+  "author": {
+    "name": "Tim Ruffles",
+    "email": "me@truffles.me.uk"
+  },
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/SidekickJS/sidekick-assets/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "sidekick-assets@0.0.0",
+  "dist": {
+    "shasum": "d66c942d4d92f2a174e6f4d12ed6261b83173612"
+  },
+  "_resolved": "git+ssh://git@github.com:SidekickJS/sidekick-assets.git#dc253cac94178ebad41c4378c1ae640d580ecb62",
+  "_from": "git+ssh://git@github.com:SidekickJS/sidekick-assets.git#0.0.1"
+}
