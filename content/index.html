@@ -1,25 +1,157 @@
 ---
-title: Javascript metrics, code-quality and linting
+title: SidekickJS - Javascript code quality tool
+body_class: "frontpage"
 ---
-<section id=front>
-  <header>
-    <h1>Javascript metrics, code-quality and linting</h1>
-  </header>
 
+<nav>
+  <div class=content>
+    <div class=logo>
+      <a href="/">
+        <h2>Sidekick<span class=lang>JS</span></h2>
+        <img src="/static/shared/img/large-border-head.svg" height=105>
+      </a>
+    </div>
+    <div class=links>
+      <a href="http://sidekicksrc.com">Blog</a>
+      <a href="http://sidekicksrc.com/about">About us</a>
+      <a href="/coffeescript">CoffeeScript</a>
+    </div>
+    <div class=users>
+      <a class="signup btn" href="/signup">Sign up</a>
+      <a href="/login">Login</a>
+    </div>
+  </div>
+</nav>
 
-  <% @items['/sections/'][:sections].each do |id,section| %>
-    <section id='<%= id %>'>
-      <h2><%= section[:title] %></h2>
-      <div>
-        <%= section[:body] %>
-        <h3>Articles</h3>
+<header>
+  <div class=content>
+    <div class=mast>
+      <h3>Be proud of your team's code</h3>
+      <h1 class=long>SidekickJS tracks code quality to keep your team productive & happy</h1>
+      <button>Start today</button>
+    </div>
+  </div>
+</header>
+
+<div class=main>
+
+  <div class=benefits_testimonials>
+    <div class=content>
+      <section class=benefits>
+        <div class=all>
+          <h2>What does SidekickJS do for you?</h2>
+          <div class=block_list>
+            <div class=benefit>
+              <div class=header>
+                <img class=icon>
+                <h3>Your team loves a challenge: keep the bar high</h3> 
+              </div>
+              <p class=long>Great teaams produce great work. Show you're dedicated to writing great code, and your team will rise to the challenge.</p>
+            </div>
+            <div class=benefit>
+              <div class=header>
+                <img class=icon>
+                <h3>No hurt egos in code-review</h3> 
+              </div>
+              <p class=long>Code-review can feel personal if you pick up on the same issues. Sidekick automatically annotates the easy stuff so you can concentrate on mentoring.</p>
+            </div>
+            <div class=benefit>
+              <div class=header>
+                <img class=icon>
+                <h3>Your boss will let you refactor</h3> 
+              </div>
+              <p class=long>Your boss can have a hard time seeing why you should spend time on existing code. Tracking technical debt provides accountability, and gets you your cleanup sprint.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class=testimonials>
+        <div class=testimonial>
+          <img class=portrait>
+          <h3>Rob Chandler - Believe.in</h3>
+          <p>Sidekick's Github integration means it fits in with our worflow, and has found technical debt we could have missed without it.</p>
+        </div>
+        <div class=testimonial>
+          <img class=portrait>
+          <h3>Mattias Ekendah</h3>
+          <p>Whether for my team, or open-source code, I find SidekickJS really useful!</p>
+        </div>
+        <a href="">Read some tweets about SidekickJS</a>
+      </section>
+    </div>
+  </div>
+
+  <div class=features_users>
+    <div class=content>
+      <section class=users>
+        <h3>Already on board:</h3>
         <ul>
-          <% section_articles(id).each do |item| %>
-            <li><a href="<%= item.identifier %>"><%= item[:title] %></a></li>
-          <% end %>
+          <li>Believe.in</li>
+          <li>GoCardless</li>
+          <li>Papershaker</li>
+          <li>New Bamboo</li>
+          <li>GoSquared</li>
         </ul>
-      </div>
-    </section>
-  <% end %>
+      </section>
+      <section class=features>
+        <h2>Features</h2>
+        <div class=block_list>
+          <div class=feature>
+            <div class=img_placeholder></div>
+            <h3>Repetition dectector</h3>
+            <p>Keep your code DRY and you'll not need to fix the same bug twice. SidekickJS's repetition detection is smart enough to see even structual repetition - regardless of the words or formatting.</p>
+          </div>
+          <div class=feature>
+            <div class=img_placeholder></div>
+            <h3>Complexity analysis</h3>
+            <p>It's sometimes hard to know when your code is complex - metrics flag any areas that are becoming a problem.</p>
+          </div>
+          <div class=feature>
+            <div class=img_placeholder></div>
+            <h3>JSHint</h3>
+            <p>The baseline: keep a house style, and spot potential dangers before they cause bugs.</p>
+          </div>
+          <div class=feature>
+            <div class=img_placeholder></div>
+            <h3>TODO tracking</h3>
+            <p>TODOs and FIXMEs are broken windows - don't let your codebase rot. Track, priroties and fix.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
-</section>
+  <section class=pricing>
+    <div class=content>
+      <h2>Pricing</h2>
+      <div class=services>
+        <div class=service>
+          <h3>Solo</h3>
+          <p class=plan>Up to two active developers</p>
+          <p class=pricing>
+            £7 / month
+          </p>
+          <button>Select</button>
+        </div>
+        <div class='service focus'>
+          <h3>Team</h3>
+          <p class=plan>Up to 10 active developers</p>
+          <p class=pricing>
+            £50 / month
+          </p>
+          <button>Select</button>
+        </div>
+        <div class=service>
+          <h3>Big Team</h3>
+          <p class=plan>Up to 40 active developers</p>
+          <p class=pricing>
+            £275 / month
+          </p>
+          <button>Select</button>
+        </div>
+      </div>
+      <a class=oss href="/users/sign_up">Open source - free forever!</a>
+    </div>
+  </section>
+</div>
+

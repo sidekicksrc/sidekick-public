@@ -21,6 +21,7 @@ require "pry"
 preprocess do
 end
 
+
 compile "/sass/style" do
   filter :sass
 end

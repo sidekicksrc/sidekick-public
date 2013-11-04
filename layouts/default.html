@@ -1,10 +1,6 @@
 <%= render "header" %>
-<body class="">
+<body class="<%= item[:body_class] %>">
 
   <%= yield %>
-
-  <nav>
-    <h2>SidekickJS<h2>
-  </nav>
 
 <%= render "footer" %>

@@ -1,206 +1,206 @@
 @import bourbon/bourbon
 @import neat/neat
-@import base
-@import forms
+@import ../../libs/sidekick-assets/sass/base
+@import ../../libs/sidekick-assets/sass/forms
+@import ../../libs/sidekick-assets/sass/nav
 @import eg_test
 
-$hn-color: #ff6600
+$grab: #f65f40
 
-body
-  font-size: 18px
-  padding-bottom: 4rem
+$grey_area: #e6e6e6 
 
-=main-title
-  min-height: $vunit
-  color: #fff
-  background: $contrast
-  font-size: 2.25rem
-  padding: 1.5rem 0rem
-  margin: 0
-  margin-bottom: $vunit/2
-  @media (max-width: 480px)
-    margin-bottom: $vunit/4
-    padding: .75rem 0
-  .content
-    +content
-    display: block
+=icon_placeholder
+  background: #ddd
+  height: 60px
+  width: 60px
 
-=site-name
-  margin: 0
-  color: #888
-  font-size: 1.5rem
-  padding: 0.5rem 2rem
-  text-align: right
-  +content-width
-
-=secondary-title
-  min-height: $vunit/4
-  color: $contrast
-  font-size: 1.15rem
-  +content-width
-
-=content-width
-  max-width: 40rem
-  @media (max-width: 481px)
-    max-width: 90%
-
-=content
-  +content-width
-  margin: 0 auto
-
-.blog
-  h2
-    +secondary-title
-    font-size: 1.5rem
-  p,ul,ol,code
-    line-height: 1.545em
-  img
-    margin: 2rem 0
-  .header
-    padding: .25rem 1rem
-    @media (max-width: 480px)
-      padding: .25rem .25rem
-    h2
-      font-size: 1rem
-      margin: 0
-      max-width: 100%
-    min-height: $vunit / 4
-    background: #f5f5f5
-    overflow: hidden
-    text-align: right
-    a[href]
-      color: #555
-  p, ul, ol, pre
-    +content-width
-  .sidebar
-    float: right
-    max-width: 10rem
-
-  .CodeRay
-    margin-left: 2rem
-    +content-width
-    pre
-      white-space: pre-wrap
-
-  .tldr
-    background: $contrast
-    color: #fff
-    padding-top: 0.25rem
-    padding-bottom: 0.25rem
-
-
-  .footer
-    margin-top: 2rem
-    .links
-      +content-width
-      overflow: auto
-      a
-        display: block
-        width: 33%
-        float: left
-        text-align: center
-        color: #fff
-        padding: 0.5rem 0
-        text-decoration: none
-      .rss
-        background: hsl(36, 100%, 50%)  
-    .sk-link
-      margin: 1rem 0
-      display: block
-    .hn
-      background: $hn-color
-      &:hover
-        background: lighten($hn-color,5%)
-    .twitter
-      background: #4099FF
-      &:hover
-        background: lighten(#4099FF,5%)
-  .front_title
-    +content-width
-    overflow: auto
-    h2
-      font-size: 1.5rem
-      margin-bottom: 0
-    span
-      font-size: 1rem
-    a
-      color: inherit
-      &:hover
-        text-decoration: none
-
-
-.blog
-  h1
-    +main-title
-  .article
-    +content
-  &.list .content
-    +content
-    h2
-      +secondary-title
-    .date
-      padding: 0
-
-code
-  white-space: pre-wrap
-
-.page .wrap
-  width: 40rem
-  margin: 0 auto
-
-div[data-describe], div[data-it], div[data-before], div[data-before-each], div[after], div[after-each] 
-  +content-width
-  color: #333
-  background: #f8f8ff
-  padding-bottom: 1.5em
-  padding: .125rem
-  @media (min-width: 600px)
-    padding: .5em
-
-.eg-annotation
-  +content-width
-  text-align: right
-  margin: 0.5rem 0
-  height: 2rem
-  line-height: 2rem
-  a
-    text-decoration: none
-    color: inherit
-  &.passed
-    color: #2ecc71
-  &.failed
-    color: #e67e22
-  .result
-    font-size: .8rem
-    margin-right: 1rem
-
-.footnotes
-  margin-top: 3em
-  color: #444
-  li
-    font-size: 0.9rem
-    padding: 0 .25rem
-.highlit_by_url
-  background: hsla(60,100%,50%,0.2)
-    
-.sup
+a[href]:hover
   text-decoration: none
 
-.info
-  background: hsl(209, 13%, 98%)
-  color: #222
-  border: 1px solid hsl(210, 21%, 94%)
-  padding: 1rem
-
+=contrast_link
+  color: #fff
 
 /* front page */
-nav, footer
-  +outer-container()
-#front
-  +outer-container()
-  section
-    +row()
-    h2, div
-      +span-columns(6)
+.frontpage
 
+  p
+    font-size: 1rem
+    color: #555
+  h3
+    font-weight: 800
+    margin-bottom: 1rem
+
+  header
+    padding: 6rem 0
+    +media($small)
+      padding: 0 0 2rem 0
+    h3
+      margin-top: 0
+    .mast
+      +span-columns(4)
+      float: left
+      +media($medium)
+        float: none
+        +span-columns(2)
+      +media($small)
+        float: none
+        +span-columns(4)
+      h1
+        font-size: 1.5rem
+        color: #888
+        margin-bottom: 2rem
+      h3
+        font-size: 2.5rem
+        margin-bottom: 0
+        font-weight: 800
+    button
+      +action_button()
+      font-size: 1.25rem
+      background: $grab
+      box-shadow: 0 3px 0 #ccc
+      padding: 1rem 2rem
+
+  section
+    padding: 2rem 0
+    +media($small)
+      padding: 0.5rem
+
+  .benefits_testimonials
+    +row()
+  section.testimonials
+    +span-columns(4)
+    position: relative
+    top: -1rem
+    text-align: center
+    +media($small)
+      text-align: left
+      position: static
+      +span-columns(4)
+      background: #fff
+    .testimonial
+      .portrait
+        +icon_placeholder()
+        margin: 0 auto
+      p
+        color: #222
+        width: 80%
+        margin: 0 auto
+        +media($small)  
+          margin: 0
+  section.benefits
+    +span-columns(8)
+    +media($small)
+      +span-columns(4)
+    .benefit
+      +span-columns(5)
+      +media($small)
+        +span-columns(4)
+      .icon
+        +icon_placeholder()
+        float: left
+        margin-right: 1rem
+      .header
+        h3
+          margin-top: 0
+        min-height: 6rem
+        +media($small)
+          min-height: 0
+        overflow: auto
+    
+
+  header, .features_users
+    background: $grey_area
+  .content
+    +outer-container()
+    @media (max-width: 80em)
+      padding-left: 1em
+
+  .features_users
+    +row()
+    section.features
+      h2
+        clear: both
+      overflow: auto
+      +span-columns(8) 
+      +media($medium)
+        +span-columns(4)
+      .feature
+        +span-columns(6)
+        +media($medium)
+          +span-columns(4)
+        .img_placeholder
+          background: #ddd
+          height: 160px
+
+    section.users
+      +span-columns(4) 
+      +media($medium)
+        +span-columns(4)
+      ul
+        list-style-type: none
+        padding: 0
+        font-size: 2rem
+    a
+      display: block
+      +span-columns(12)
+
+
+  section.pricing
+    a
+      +contrast_link()
+    background: $grab
+    +row()
+    padding-bottom: 4rem
+    h3
+      color: $grab
+      text-transform: uppercase
+      font-weight: 600
+    .plan
+      width: 60%
+      margin: 0 auto
+      height: 4rem
+    .oss
+      font-size: 1.25rem
+      margin-top: 2rem
+      display: inline-block
+    .pricing
+      background: $grey_area
+      text-transform: uppercase
+      padding: 0.5rem
+    button
+      +action_button()
+      background: #888
+      color: #fff
+      padding: .5rem 1rem
+    .focus button
+      background: $contrast
+    .service
+      text-align: center
+      float: left
+      background: #fff
+      width: 16rem
+      margin-right: 1rem
+      padding-bottom: 1rem
+      border-radius: 4px
+      height: 18rem
+      margin-top: 1rem
+    .focus
+      height: 20rem
+      margin-top: 0
+      padding-top: 1rem
+    .services
+      width: 51rem
+      margin: 0 auto
+      overflow: auto
+
+  .testimonials
+    background: $contrast
+
+.frontpage .main
+  .block_list div
+    margin-right: 2%
+    clear: left
+    &:nth-child(2n)
+      margin-right: 0
+      clear: none
 

@@ -1,8 +1,15 @@
 {
-  "name": "eg_test",
+  "name": "sidekick-public",
   "version": "0.0.1",
   "devDependencies": {
     "mocha": ">= 0.0.1",
     "referee": ">= 0.0.1"
-  }
+  },
+  "description": "public site for sidekick",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD"
 }

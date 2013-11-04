@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "nanoc"
+gem "nanoc", "~> 3.6.5"
 gem "listen"
 gem "asdf"
 gem "mime-types"
