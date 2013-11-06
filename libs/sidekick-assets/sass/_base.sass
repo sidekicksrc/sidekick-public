@@ -54,7 +54,13 @@ h1,h2,h3,h4,h5
   text-decoration: none
   cursor: pointer
 
+=button_background($color)
+  background: $color
+  &:hover
+    background: saturate(lighten($color,5%),2%)
+
 $small: new-breakpoint(max-width 480px 4)
-$medium: new-breakpoint(max-width 800px 4)
+$not-small: new-breakpoint(min-width 481px 12)
+$medium: new-breakpoint(max-width 800px 12)
 $large: new-breakpoint(min-width 800px 12)
 

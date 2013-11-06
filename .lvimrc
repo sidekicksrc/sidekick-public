@@ -1,0 +1,1 @@
+set wildignore=content/sass/bourbon,content/sass/neat,bin,vendor,output,tmp

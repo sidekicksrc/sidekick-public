@@ -3,16 +3,14 @@
 @import ../../libs/sidekick-assets/sass/base
 @import ../../libs/sidekick-assets/sass/forms
 @import ../../libs/sidekick-assets/sass/nav
-@import eg_test
 
 $grab: #f65f40
 
 $grey_area: #e6e6e6 
 
-=icon_placeholder
-  background: #ddd
-  height: 60px
-  width: 60px
+=icon
+  width: 64px
+  height: 75px
 
 a[href]:hover
   text-decoration: none
@@ -31,32 +29,41 @@ a[href]:hover
     margin-bottom: 1rem
 
   header
-    padding: 6rem 0
+    min-height: 560px
     +media($small)
-      padding: 0 0 2rem 0
+      min-height: 0
+    .content
+      position: relative
     h3
       margin-top: 0
-    .mast
+    img
+      position: absolute
+      top: -20px
+
+  .mast
+    margin: 6rem 0
+    +media($small)
+      margin: 2rem 0 2rem 0
+    +span-columns(4)
+    float: left
+    +media($medium)
+      float: none
+      +span-columns(6)
+    +media($small)
+      float: none
       +span-columns(4)
-      float: left
-      +media($medium)
-        float: none
-        +span-columns(2)
-      +media($small)
-        float: none
-        +span-columns(4)
-      h1
-        font-size: 1.5rem
-        color: #888
-        margin-bottom: 2rem
-      h3
-        font-size: 2.5rem
-        margin-bottom: 0
-        font-weight: 800
+    h1
+      font-size: 1.5rem
+      color: #888
+      margin-bottom: 2rem
+    h3
+      font-size: 2.5rem
+      margin-bottom: 0
+      font-weight: 800
     button
       +action_button()
+      +button_background($grab)
       font-size: 1.25rem
-      background: $grab
       box-shadow: 0 3px 0 #ccc
       padding: 1rem 2rem
 
@@ -67,26 +74,52 @@ a[href]:hover
 
   .benefits_testimonials
     +row()
+
+    .header
+      .icon, .portrait
+        +icon()
+        float: left
+        margin-right: 1rem
+      h3
+        margin-top: 0
+      min-height: 6rem
+      +media($small)
+        min-height: 0
+      overflow: auto
+
+    p
+      color: #222
+      width: 80%
+      +media($small)  
+        margin: 1rem 0
+
   section.testimonials
     +span-columns(4)
     position: relative
-    top: -1rem
     text-align: center
+    top: 2em
     +media($small)
       text-align: left
       position: static
       +span-columns(4)
       background: #fff
+    +media($not-small)
+      .testimonial
+        h3
+          color: #fff
+      a[href]
+        &, &:hover, &:visited
+        color: #fff
     .testimonial
-      .portrait
-        +icon_placeholder()
-        margin: 0 auto
       p
-        color: #222
-        width: 80%
-        margin: 0 auto
-        +media($small)  
-          margin: 0
+        +media($not-small)
+          margin: 1rem auto 0 auto
+      margin-bottom: 1rem
+      +media($not-small)
+        .portrait
+          float: none
+          margin: 0 auto
+
   section.benefits
     +span-columns(8)
     +media($small)
@@ -95,17 +128,6 @@ a[href]:hover
       +span-columns(5)
       +media($small)
         +span-columns(4)
-      .icon
-        +icon_placeholder()
-        float: left
-        margin-right: 1rem
-      .header
-        h3
-          margin-top: 0
-        min-height: 6rem
-        +media($small)
-          min-height: 0
-        overflow: auto
     
 
   header, .features_users
@@ -123,11 +145,11 @@ a[href]:hover
       overflow: auto
       +span-columns(8) 
       +media($medium)
-        +span-columns(4)
+        +span-columns(12)
       .feature
         +span-columns(6)
         +media($medium)
-          +span-columns(4)
+          +span-columns(12)
         .img_placeholder
           background: #ddd
           height: 160px
@@ -135,7 +157,7 @@ a[href]:hover
     section.users
       +span-columns(4) 
       +media($medium)
-        +span-columns(4)
+        +span-columns(12)
       ul
         list-style-type: none
         padding: 0
@@ -146,19 +168,14 @@ a[href]:hover
 
 
   section.pricing
+    /* presentation */
     a
       +contrast_link()
     background: $grab
-    +row()
-    padding-bottom: 4rem
     h3
       color: $grab
       text-transform: uppercase
       font-weight: 600
-    .plan
-      width: 60%
-      margin: 0 auto
-      height: 4rem
     .oss
       font-size: 1.25rem
       margin-top: 2rem
@@ -169,29 +186,42 @@ a[href]:hover
       padding: 0.5rem
     button
       +action_button()
-      background: #888
+      +button_background(#888)
       color: #fff
       padding: .5rem 1rem
     .focus button
-      background: $contrast
+      +button_background($contrast)
     .service
       text-align: center
-      float: left
       background: #fff
-      width: 16rem
-      margin-right: 1rem
-      padding-bottom: 1rem
       border-radius: 4px
-      height: 18rem
-      margin-top: 1rem
-    .focus
-      height: 20rem
-      margin-top: 0
-      padding-top: 1rem
-    .services
-      width: 51rem
-      margin: 0 auto
-      overflow: auto
+    /* layout */
+    +row()
+    padding-bottom: 4rem
+    +media($small)
+      .service
+        padding-bottom: 1rem
+        padding-top: 0.5rem
+        margin-bottom: 1rem
+    +media($not-small)
+      .plan
+        width: 60%
+        margin: 0 auto
+        height: 4rem
+      .service
+        float: left
+        width: 16rem
+        margin-right: 1rem
+        height: 18rem
+        margin-top: 1rem
+      .focus
+        height: 20rem
+        margin-top: 0
+        padding-top: 1rem
+      .services
+        width: 51rem
+        margin: 0 auto
+        overflow: auto
 
   .testimonials
     background: $contrast
