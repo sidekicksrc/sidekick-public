@@ -142,6 +142,13 @@ a[href]:hover
     section.features
       h2
         clear: both
+      img
+        width: 400px
+        height: 110px
+      +media($small)
+        img
+          height: 77px
+          width: 280px
       overflow: auto
       +span-columns(12) 
       +media($medium)
