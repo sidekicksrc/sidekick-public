@@ -10,16 +10,14 @@ task :deploy do
   set -e
   rm -rf output
   mv vendor /tmp/sk-deploy-vendor
-  git checkout gh-pages
-  git reset --hard master
-  DOMAIN=sidekicksrc.com BASE_URL='http://sidekicksrc.com' nanoc compile
+  git checkout deploy
+  git reset master
+  NANOC_ENV=production nanoc compile
   ls | grep -v output | grep -v tmp | while read file; do rm -rf $file; done 
   mv output/* .
   rm -rf output
   git add . -A
   git commit -m 'latest'
-  git push --force public gh-pages
-  git checkout master
   mv /tmp/sk-deploy-vendor vendor/
   )
 end
