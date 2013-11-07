@@ -13,7 +13,6 @@
   <title><%= @item[:title] %></title>
 
   <link rel=stylesheet href=<%= @config[:base_url] %>/css/style.css />
-  <link rel="shortcut icon" href="/img/favicon-32.png">
-  <script src="/js/head.js"></script>
+  <link rel="shortcut icon" href="<%= @config[:base_url] %>/shared/img/favicon-32.png">
   <%= render "google_analytics" %>
 </head>

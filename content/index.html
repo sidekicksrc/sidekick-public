@@ -7,7 +7,7 @@ body_class: "frontpage"
   <div class=content>
     <div class=logo>
       <a href="/">
-        <img src="/public-static/shared/img/large-border-head.svg" height=105 width=90>
+        <img src="<%= @config[:base_url] %>/shared/img/large-border-head.svg" height=105 width=90>
         <h2>Sidekick<span class=lang>JS</span></h2>
       </a>
     </div>
@@ -29,10 +29,10 @@ body_class: "frontpage"
     </div>
     <% alt = "A development team happy their code quality is high, helped by SidekickJS" %>
     <span data-picture data-alt="<%= alt %>">
-      <span data-src="/public-static/img/top_image.png" data-media="(min-width: 801px)"></span>
-      <span data-src="/public-static/img/top_image_small.png" data-media="(max-width: 800px) AND (min-width: 481px)"></span>
+      <span data-src="<%= @config[:base_url] %>/img/top_image.png" data-media="(min-width: 801px)"></span>
+      <span data-src="<%= @config[:base_url] %>/img/top_image_small.png" data-media="(max-width: 800px) AND (min-width: 481px)"></span>
       <noscript>
-        <img src="/public-static/img/top_image.png" width=600 alt="<%= alt %>">
+        <img src="<%= @config[:base_url] %>/img/top_image.png" width=600 alt="<%= alt %>">
       </noscript>
     </span>
   </div>
@@ -48,21 +48,21 @@ body_class: "frontpage"
           <div class=block_list>
             <div class=benefit>
               <div class=header>
-                <img class=icon src="/public-static/img/icons/quality.png" alt="Developers love to write great code - challenge them to">
+                <img class=icon src="<%= @config[:base_url] %>/img/icons/quality.png" alt="Developers love to write great code - challenge them to">
                 <h3>Your team loves a challenge: keep the bar high</h3> 
               </div>
               <p class=long>Great teams produce great work. Show you're dedicated to writing great code, and your team will rise to the challenge.</p>
             </div>
             <div class=benefit>
               <div class=header>
-                <img class=icon src="/public-static/img/icons/ego.png" alt="Don't upset people with code review - let objective tools start conversations">
+                <img class=icon src="<%= @config[:base_url] %>/img/icons/ego.png" alt="Don't upset people with code review - let objective tools start conversations">
                 <h3>No hurt egos in code-review</h3> 
               </div>
               <p class=long>Code-review can feel personal if you pick up on the same issues again and again. Sidekick automatically annotates the easy stuff so you can concentrate on mentoring.</p>
             </div>
             <div class=benefit>
               <div class=header>
-                <img class=icon src="/public-static/img/icons/boss.png" alt="Explain to non-technical people why you need to refactor with an objective measure of code-quality">
+                <img class=icon src="<%= @config[:base_url] %>/img/icons/boss.png" alt="Explain to non-technical people why you need to refactor with an objective measure of code-quality">
                 <h3>Your boss will let you refactor</h3> 
               </div>
               <p class=long>Your boss can have a hard time seeing why you should spend time on existing code. Tracking technical debt provides accountability, and gets you your cleanup sprint.</p>
@@ -73,7 +73,7 @@ body_class: "frontpage"
       <section class=testimonials>
         <div class=testimonial>
           <div class=header>
-            <img src="/public-static/img/people/rob.png" class=portrait alt="Rob Chandler, Web Developer at Believe.in">
+            <img src="<%= @config[:base_url] %>/img/people/rob.png" class=portrait alt="Rob Chandler, Web Developer at Believe.in">
             <h3>Rob Chandler - Believe.in</h3>
           </div>
           <p>Sidekick's Github integration means it fits in with our workflow, and has found technical debt we could have missed without it.</p>
@@ -88,22 +88,22 @@ body_class: "frontpage"
         <h2>Features</h2>
         <div class=block_list>
           <div class=feature>
-            <img src="/public-static/img/screenshots/repetition.png" >
+            <img src="<%= @config[:base_url] %>/img/screenshots/repetition.png" >
             <h3>Repetition detection</h3>
             <p>Keep your code DRY and you'll not need to fix the same bug twice. SidekickJS's repetition detection is smart enough to see even structural repetition - regardless of the words or formatting.</p>
           </div>
           <div class=feature>
-            <img src="/public-static/img/screenshots/complexity.png" >
+            <img src="<%= @config[:base_url] %>/img/screenshots/complexity.png" >
             <h3>Complexity analysis</h3>
             <p>It's sometimes hard to know when your code is complex - metrics flag any areas that are becoming a problem.</p>
           </div>
           <div class=feature>
-            <img src="/public-static/img/screenshots/lint.png" >
+            <img src="<%= @config[:base_url] %>/img/screenshots/lint.png" >
             <h3>JSHint</h3>
             <p>The baseline: keep a house style, and spot potential dangers before they cause bugs.</p>
           </div>
           <div class=feature>
-            <img src="/public-static/img/screenshots/todos.png" >
+            <img src="<%= @config[:base_url] %>/img/screenshots/todos.png" >
             <h3>TODO tracking</h3>
             <p>TODOs and FIXMEs are broken windows - don't let your codebase rot. Track, prioritise and fix.</p>
           </div>
@@ -148,5 +148,5 @@ body_class: "frontpage"
   </section>
 </div>
 
-<script src="/public-static/js/picturefill.js"></script>
-<script src="/public-static/js/front.js"></script>
+<script src="<%= @config[:base_url] %>/js/picturefill.js"></script>
+<script src="<%= @config[:base_url] %>/js/front.js"></script>

@@ -3,6 +3,10 @@
 # will be considered as binary.
 text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'sass', 'scss', 'txt', 'xhtml', 'xml', 'kram' ]
 
+# to allow public to run off sidekickjs.com/
+# we have a static base directory for all
+# other files - if new pages are added they'll
+# live inside here too for links
 base_url: 'http://localhost:3334'
 domain: 'localhost'
 
@@ -39,7 +43,6 @@ prune:
 data_sources:
   -
     type: static
-    items_root: /public-static
   -
     # The type is the identifier of the data source. By default, this will be
     # `filesystem_unified`.
