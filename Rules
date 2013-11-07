@@ -13,8 +13,10 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-@config[:base_url] = ENV["BASE_URL"] if ENV["BASE_URL"]
-@config[:domain] = ENV["DOMAIN"] if ENV["DOMAIN"]
+if ENV.has_key? "NANOC_ENV"
+  env_config = @config.fetch(ENV["NANOC_ENV"].to_sym)
+  @config.merge! env_config
+end
 
 require "pry"
 
