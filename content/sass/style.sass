@@ -143,7 +143,7 @@ a[href]:hover
       h2
         clear: both
       overflow: auto
-      +span-columns(8) 
+      +span-columns(12) 
       +media($medium)
         +span-columns(12)
       .feature
@@ -184,12 +184,14 @@ a[href]:hover
       background: $grey_area
       text-transform: uppercase
       padding: 0.5rem
-    button
+    .service a
       +action_button()
       +button_background(#888)
       color: #fff
       padding: .5rem 1rem
-    .focus button
+      font-size: 0.8rem
+      display: inline-block
+    .focus a
       +button_background($contrast)
     .service
       text-align: center
