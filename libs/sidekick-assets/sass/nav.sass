@@ -8,7 +8,9 @@ nav
     font-weight: 800
   .signup.btn
     padding: .5rem 1rem
-    position: relative
+    +media($small)
+      position: relative
+      top: -.5rem
   .links
     text-align: center
   .links a:not(.users)
