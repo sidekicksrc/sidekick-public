@@ -35,11 +35,6 @@ create_commit() {
   git update-ref deploy $new_commit
 }
 
-checkout_clean_branch() {
-  # deploy-staging is an orphan branch, only history on it is deployed versions
-  git checkout deploy-staging
-}
-
 compile() {
   NANOC_ENV=production nanoc compile
 }
