@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Repetition</title>
+
+  <link rel=stylesheet href=/public-site/css/style.css />
+  <link rel="shortcut icon" href="/public-site/shared/img/favicon-32.png">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40226431-2', 'sidekickjs.com');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body class="">
+
+
+  <nav>
+  <div class=content>
+    <div class=logo>
+      <a href="/">
+        <img src="/public-site/shared/img/large-border-head.svg" height=105 width=90>
+        <h2>Sidekick<span class=lang>JS</span></h2>
+      </a>
+    </div>
+    <div class=links>
+      <a href="http://sidekicksrc.com">Blog</a>
+      <a href="/coffeescript">CoffeeScript</a>
+      <a href="/users/sign_in">Login</a>
+      <a href="/signup" class="users signup btn">Sign up</a>
+    </div>
+    <a href="/nav" class=toggle >&#9776;</a>
+  </div>
+</nav>
+
+
+  <div class=page>
+
+    <header>
+      <h1 class=content>Repetition</h1>
+    </header>
+
+    <article>
+
+      <div class=content>
+        <section class=quick>
+          
+        </section>
+        <section class=body>
+          <p>Repetition counts the number of structurally duplicated lines. For instance, the below </p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#080;font-weight:bold">if</span> (err) {
+      res.json({
+        <span style="color:#606">status</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">failure</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606">message</span>: err.error + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> - </span><span style="color:#710">'</span></span> + err.reason
+      },<span style="color:#00D">500</span>);
+    } <span style="color:#080;font-weight:bold">else</span> {
+      res.send({
+        <span style="color:#606">status</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">success - you are now in queue to receive an invite on our next batch!</span><span style="color:#710">&quot;</span></span>
+      });
+    }
+  });
+} <span style="color:#080;font-weight:bold">else</span> {
+</pre></div>
+</div>
+</div>
+
+<p>and</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#080;font-weight:bold">if</span> (err) {
+     res.json({
+       <span style="color:#606">status</span>  : <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">failure</span><span style="color:#710">&quot;</span></span>,
+       <span style="color:#606">message</span> : err.error + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> - </span><span style="color:#710">'</span></span> + err.reason
+     },<span style="color:#00D">500</span>);
+   } <span style="color:#080;font-weight:bold">else</span> {
+     res.json({
+       <span style="color:#606">status</span> : <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">success</span><span style="color:#710">&quot;</span></span>
+     });
+   }
+ });
+}
+</pre></div>
+</div>
+</div>
+
+<p>repeat the same structure, even if some identifiers or literals aren’t repeated. This debt is justified by the <a href="/quality/economy/#redundancy">redundancy</a> it creates in our code.</p>
+
+<p>The debt for a repetition is simply the number of lines duplicated. If you have the same 10 lines 3 times, that counts for 30 debt.</p>
+
+        </section>
+      </div>
+
+      
+
+      
+
+
+    </article>
+  </div>
+</body>
+</html>
+

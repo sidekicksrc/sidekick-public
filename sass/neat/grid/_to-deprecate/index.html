@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   
@@ -25,10 +21,9 @@
 </script>
 
 </head>
-
 <body class="">
 
-  @mixin breakpoint($query:$feature $value $columns, $total-columns: $grid-columns) {
+@mixin breakpoint($query:$feature $value $columns, $total-columns: $grid-columns) {
   @warn "The breakpoint() mixin was renamed to media() in Neat 1.0. Please update your project with the new syntax before the next version bump.";
 
   @if length($query) == 1 {
@@ -85,7 +80,6 @@
   @warn "The nth-omega() mixin is deprecated. Please use omega() instead.";
   @include omega($nth $display, $direction);
 }
-
 
 </body>
 </html>

@@ -253,6 +253,20 @@ nav {
 a[href]:hover {
   text-decoration: none; }
 
+.content {
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .content:before, .content:after {
+    content: " ";
+    display: table; }
+  .content:after {
+    clear: both; }
+  @media (max-width: 80em) {
+    .content {
+      padding-left: 1em; } }
+
 /* front page */
 .frontpage p {
   font-size: 1rem;
@@ -424,19 +438,6 @@ a[href]:hover {
           margin-right: 0; } }
 .frontpage header, .frontpage .features_users {
   background: #e6e6e6; }
-.frontpage .content {
-  *zoom: 1;
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  .frontpage .content:before, .frontpage .content:after {
-    content: " ";
-    display: table; }
-  .frontpage .content:after {
-    clear: both; }
-  @media (max-width: 80em) {
-    .frontpage .content {
-      padding-left: 1em; } }
 .frontpage .features_users {
   *zoom: 1;
   display: block; }
@@ -598,3 +599,56 @@ a[href]:hover {
   .frontpage .main .block_list div:nth-child(2n) {
     margin-right: 0;
     clear: none; }
+
+.page header {
+  background: #21c08d;
+  color: white;
+  min-height: 6rem;
+  line-height: 2em;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1em; }
+  .page header h1 {
+    padding-top: 15px;
+    margin-top: 0; }
+  @media screen and (max-width: 480px) {
+    .page header {
+      font-size: 1.25rem; }
+      .page header h1 {
+        padding: 25px 0; } }
+.page article {
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .page article:before, .page article:after {
+    content: " ";
+    display: table; }
+  .page article:after {
+    clear: both; }
+
+#docs_front section {
+  *zoom: 1;
+  display: block; }
+  #docs_front section:before, #docs_front section:after {
+    content: " ";
+    display: table; }
+  #docs_front section:after {
+    clear: both; }
+  #docs_front section h2, #docs_front section div {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    #docs_front section h2:last-child, #docs_front section div:last-child {
+      margin-right: 0; }
+    @media screen and (max-width: 480px) {
+      #docs_front section h2, #docs_front section div {
+        display: block;
+        float: left;
+        margin-right: 7.42297%;
+        width: 100%; }
+        #docs_front section h2:last-child, #docs_front section div:last-child {
+          margin-right: 0; } }
+  #docs_front section h2 {
+    margin-top: 0; }

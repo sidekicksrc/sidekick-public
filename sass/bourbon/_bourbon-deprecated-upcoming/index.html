@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   
@@ -25,10 +21,9 @@
 </script>
 
 </head>
-
 <body class="">
 
-  //************************************************************************//
+//************************************************************************//
 // These mixins/functions are deprecated
 // They will be removed in the next MAJOR version release
 //************************************************************************//
@@ -41,7 +36,6 @@
   @include prefixer(background-size, $lengths, spec);
   @warn "background-size is deprecated and will be removed in the next major version release";
 }
-
 
 </body>
 </html>

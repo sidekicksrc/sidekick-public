@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   
@@ -25,10 +21,9 @@
 </script>
 
 </head>
-
 <body class="">
 
-  // http://www.w3.org/TR/css3-animations/#the-animation-name-property-
+// http://www.w3.org/TR/css3-animations/#the-animation-name-property-
 // Each of these mixins support comma separated lists of values, which allows different transitions for individual properties to be described in a single style rule. Each value in the list corresponds to the value at that same position in the other properties.
 
 // Official animation shorthand property.
@@ -80,7 +75,6 @@
 // none | forwards | backwards | both
   @include prefixer(animation-fill-mode, $modes, webkit moz spec);
 }
-
 
 </body>
 </html>

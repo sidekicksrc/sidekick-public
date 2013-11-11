@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Cyclomatic Complexity</title>
+
+  <link rel=stylesheet href=/public-site/css/style.css />
+  <link rel="shortcut icon" href="/public-site/shared/img/favicon-32.png">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40226431-2', 'sidekickjs.com');
+  ga('send', 'pageview');
+</script>
+
+</head>
+<body class="">
+
+
+  <nav>
+  <div class=content>
+    <div class=logo>
+      <a href="/">
+        <img src="/public-site/shared/img/large-border-head.svg" height=105 width=90>
+        <h2>Sidekick<span class=lang>JS</span></h2>
+      </a>
+    </div>
+    <div class=links>
+      <a href="http://sidekicksrc.com">Blog</a>
+      <a href="/coffeescript">CoffeeScript</a>
+      <a href="/users/sign_in">Login</a>
+      <a href="/signup" class="users signup btn">Sign up</a>
+    </div>
+    <a href="/nav" class=toggle >&#9776;</a>
+  </div>
+</nav>
+
+
+  <div class=page>
+
+    <header>
+      <h1 class=content>Cyclomatic Complexity</h1>
+    </header>
+
+    <article>
+
+      <div class=content>
+        <section class=quick>
+          
+        </section>
+        <section class=body>
+          <p>In SidekickJS, cyclomatic complexity contributes to debt as follows:</p>
+
+<table class="debt">
+  <tr>
+    <th>Complexity</th>
+    <th>Debt</th>
+  </tr>
+  <tr>
+    <td>10 - 15</td><td>1 debt per unit of complexity</td>
+  </tr>
+  <tr>
+    <td>16+</td><td>1.5 debt per unit of complexity</td>
+  </tr>
+</table>
+
+<p>Cyclomatic complexity measures the unique paths through your code. The more unique paths your code has, the more possible ways there are for it to go wrong. Whether you’re writing unit tests, or reasoning about code during debugging, it’s harder the higher the cyclomatic complexity is.</p>
+
+<p>As an example, consider the following function from Backbone.js:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#06B;font-weight:bold">changedAttributes</span>: <span style="color:#080;font-weight:bold">function</span>(diff) {
+  <span style="color:#080;font-weight:bold">if</span> (!diff) <span style="color:#080;font-weight:bold">return</span> <span style="color:#963">this</span>.hasChanged() ? _.clone(<span style="color:#963">this</span>.changed) : <span style="color:#069">false</span>;
+  <span style="color:#080;font-weight:bold">var</span> val, changed = <span style="color:#069">false</span>;
+  <span style="color:#080;font-weight:bold">var</span> old = <span style="color:#963">this</span>._changing ? <span style="color:#963">this</span>._previousAttributes : <span style="color:#963">this</span>.attributes;
+  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> attr <span style="color:#080;font-weight:bold">in</span> diff) {
+    <span style="color:#080;font-weight:bold">if</span> (_.isEqual(old[attr], (val = diff[attr]))) <span style="color:#080;font-weight:bold">continue</span>;
+    (changed || (changed = {}))[attr] = val;
+  }
+  <span style="color:#080;font-weight:bold">return</span> changed;
+}
+</pre></div>
+</div>
+</div>
+
+<p>How many ways could we go through the code? It’s clear that every time we add an <code>if</code> statement, there are two possible ways for the code to go. Equally a <code>for</code> loop may never execute the body of its loop if the object is empty. In total, we have the following branches:</p>
+
+<ul>
+  <li><code>if(!diff)</code></li>
+  <li><code>this.hasChanged() ?</code></li>
+  <li><code>this._changing ?</code></li>
+  <li><code>for (var attr in diff)</code></li>
+  <li><code>if(_.isEqual</code></li>
+  <li><code>changed || (changed = {})</code></li>
+</ul>
+
+<p>The cyclomatic complexity of the method is 6. The actual number of paths through the code is 2<sup>6</sup>, or 64! Obviously some paths are mutually exclusive, but it gives you an idea of why seemingly simple code can hide difficult bugs.</p>
+
+<p>So: what level of cyclomatic complexity is acceptable? Empirical experience suggests great code-bases like Backbone’s rarely go above 8. Like all <a href="/metrics/overview">metrics</a> it’s an indicator for problems, and not a perfect indicator. But if you have a really complex method, consider one of the solutions below.</p>
+
+<h3 id="switch-statements">Switch statements</h3>
+
+<p>Switch statements are traditionally penalised very harshly by cyclomatic complexity, but may be a good solution to a problem. There are two main types goals of switch statement: flow control, and data-driven. Using switch statements for flow control is ‘bad’ complexity: it makes reasoning about code harder. But a big, data-driven table is not as complex: you’re doing similar, sensible things in reaction to different input. Parsing is a good example of the ‘good’ switch statement.</p>
+
+<p>SidekickJS will place a limit on the complexity generated by the ‘good’ switch statements in the future.</p>
+
+<h2 id="solutions">Solutions</h2>
+
+<h3 id="split-up-the-method">Split up the method</h3>
+
+<p>If you have a huge number of paths through a method, perhaps it’s doing too much? Are there logical sub-tasks you could name and split out? This makes debugging much easier, as you can test each works in isolation, and debug the whole aggregate procedure sub-procedure by sub-procedure.</p>
+
+<h3 id="replace-conditionals-with-polymorphism">Replace conditionals with polymorphism</h3>
+
+<p>If you have code that checks what type of object you have, via <code>if</code> statements or <code>switch</code>, you can define the different behaviour to take in each case via polymorphism.</p>
+
+<h3 id="solve-problems-once">Solve problems once</h3>
+
+<p>Don’t make redundant checks in your code. If you have a special case to handle, do it once, and then continue, don’t make the same check in every place required in the procedure.</p>
+
+<h3 id="reduce-ambiguity">Reduce ambiguity</h3>
+
+<p>If you’re doing a lot of checking for null, or for input that might be a string or a number, consider why. Could you ensure that the method is always fed correct input earlier in the chain? It’s best for each component in your code to pass on a very well defined output: a method will always return a number is simpler than a method that returns either a null, a number, or a string. That way you have less guarding code as you either coerce data to a know type, or throw an error at the source, rather than checking downstream.</p>
+
+        </section>
+      </div>
+
+      
+        <h3>Resources</h3>
+        <ul>
+          
+            <li><a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity">Wikipedia - Cyclomatic Complexity</a></li>
+          
+        </ul>
+      
+
+      
+
+
+    </article>
+  </div>
+</body>
+</html>
+

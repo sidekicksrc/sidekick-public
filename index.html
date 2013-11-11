@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   
@@ -25,10 +21,9 @@
 </script>
 
 </head>
-
 <body class="frontpage">
 
-  <nav>
+<nav>
   <div class=content>
     <div class=logo>
       <a href="/">
@@ -39,11 +34,13 @@
     <div class=links>
       <a href="http://sidekicksrc.com">Blog</a>
       <a href="/coffeescript">CoffeeScript</a>
-      <a class="users signup btn" href="/signup">Sign up</a>
+      <a href="/users/sign_in">Login</a>
+      <a href="/signup" class="users signup btn">Sign up</a>
     </div>
     <a href="/nav" class=toggle >&#9776;</a>
   </div>
 </nav>
+
 
 <header>
   <div class=content>
@@ -175,7 +172,6 @@
 
 <script src="/public-site/js/picturefill.js"></script>
 <script src="/public-site/js/front.js"></script>
-
 </body>
 </html>
 
