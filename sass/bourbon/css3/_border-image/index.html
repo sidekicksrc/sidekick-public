@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title></title>
+
+  <link rel=stylesheet href=/public-site/css/style.css />
+  <link rel="shortcut icon" href="/public-site/shared/img/favicon-32.png">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40226431-2', 'sidekickjs.com');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body class="">
+
+  @mixin border-image($images) {
+  -webkit-border-image: _border-add-prefix($images, webkit);
+     -moz-border-image: _border-add-prefix($images, moz);
+       -o-border-image: _border-add-prefix($images, o);
+          border-image: _border-add-prefix($images);
+}
+
+@function _border-add-prefix($images, $vendor: false) {
+  $border-image: null;
+  $images-type:  type-of(nth($images, 1));
+  $first-var:    nth(nth($images, 1), 1);          // Get type of Gradient (Linear || radial)
+
+  // If input is a gradient
+  @if $images-type == string {
+    @if ($first-var == "linear") or ($first-var == "radial") {
+      $gradient-type: nth($images, 1);           // Get type of gradient (linear || radial)
+      $gradient-pos:  nth($images, 2);           // Get gradient position
+      $gradient-args: nth($images, 3);           // Get actual gradient (red, blue)
+      $gradient-positions: _gradient-positions-parser($gradient-type, $gradient-pos);
+      $border-image:  _render-gradients($gradient-positions, $gradient-args, $gradient-type, $vendor);
+    }
+    // If input is a URL
+    @else {
+      $border-image: $images;
+    }
+  }
+  // If input is gradient or url + additional args
+  @else if $images-type == list {
+    $type: type-of(nth($images, 1));           // Get type of variable - List or String
+
+    // If variable is a list - Gradient
+    @if $type == list {
+      $gradient: nth($images, 1);
+      $gradient-type: nth($gradient, 1);           // Get type of gradient (linear || radial)
+      $gradient-pos:  nth($gradient, 2);           // Get gradient position
+      $gradient-args: nth($gradient, 3);           // Get actual gradient (red, blue)
+      $gradient-positions: _gradient-positions-parser($gradient-type, $gradient-pos);
+      $border-image:  _render-gradients($gradient-positions, $gradient-args, $gradient-type, $vendor);
+
+      @for $i from 2 through length($images) {
+        $border-image: append($border-image, nth($images, $i));
+      }
+    }
+  }
+  @return $border-image;
+}
+
+//Examples:
+// @include border-image(url("image.png"));
+// @include border-image(url("image.png") 20 stretch);
+// @include border-image(linear-gradient(45deg, orange, yellow));
+// @include border-image(linear-gradient(45deg, orange, yellow) stretch);
+// @include border-image(linear-gradient(45deg, orange, yellow) 20 30 40 50 stretch round);
+// @include border-image(radial-gradient(top, cover, orange, yellow, orange));
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,109 @@
+nav
+  height: 5rem
+  /* presentation */
+  text-transform: uppercase
+  .links
+    padding-top: 2rem
+    font-size: 0.8rem
+    font-weight: 800
+  .signup.btn
+    padding: .5rem 1rem
+    +media($small)
+      position: relative
+      top: -.5rem
+  .links
+    text-align: center
+  .links a:not(.users)
+    display: inline-block
+    text-decoration: none
+    &::after
+      display: inline-block
+      content: "|"
+      color: #ddd
+      margin: 0 1rem
+    &:last-child::after
+      content: ""
+  .btn
+    +action_button()
+    background: $contrast
+  /* layout */
+  +row()
+  .users
+    a
+      margin-left: 1rem
+  .content
+    position: relative
+    overflow: show
+  +media($not-small)
+    .links
+      position: absolute
+      right: 0
+      top: 0
+      text-align: right
+    .logo
+      position: relative
+      overflow: auto
+      h2, img
+        float: left
+      h2
+        margin-top: 1.5rem
+        display: inline-block
+      img
+        position: relative
+        top: -10px
+        left: 0
+      a
+        text-transform: uppercase
+        text-decoration: none
+        color: #bbb
+        .lang
+          color: #888
+      .lang
+        font-weight: 800
+
+  +media($medium)
+    .logo
+      width: 90px
+      h2
+        display: none
+    .links a
+      &::after
+        margin: 0 0.5rem
+
+  position: relative
+  .toggle
+    display: none
+    font-size: 3rem
+  +media($small)
+    .links
+      display: none
+    .toggle
+      position: absolute
+      bottom: 40px
+      right: 20px
+      text-decoration: none
+      display: block
+      color: #000
+    &.active
+      .logo
+        top: 8rem
+      .links
+        text-align: left
+        position: absolute
+        display: block
+        +span-columns(4)
+        a
+          float: left
+          margin-bottom: 1rem
+      .login
+        clear: left
+      .links
+        top: 0
+      &, .content
+        height: 13rem
+      .toggle
+        bottom: 10px
+
+      .logo
+        position: absolute
+        bottom: 80px

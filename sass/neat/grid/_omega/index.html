@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title></title>
+
+  <link rel=stylesheet href=/public-site/css/style.css />
+  <link rel="shortcut icon" href="/public-site/shared/img/favicon-32.png">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40226431-2', 'sidekickjs.com');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body class="">
+
+  // Remove last element gutter
+@mixin omega($query: block, $direction: default) {
+  $table: if(belongs-to(table, $query), true, false);
+  $auto: if(belongs-to(auto, $query), true, false);
+
+  @if $direction != default {
+    @warn "The omega mixin will no longer take a $direction argument. To change the layout direction, use row($direction) or set $default-layout-direction instead."
+  } @else {
+    $direction: get-direction($layout-direction, $default-layout-direction);
+  }
+
+  @if length($query) == 1 {
+    @if $auto {
+      &:last-child {
+        margin-#{$direction}: 0;
+      }
+    }
+
+    @else if contains-display-value($query) {
+      @if $table {
+        padding-#{$direction}: 0;
+      }
+
+      @else {
+        margin-#{$direction}: 0;
+      }
+    }
+
+    @else {
+      @include nth-child($query, $direction);
+    }
+  }
+
+  @else if length($query) == 2 {
+    @if $table {
+      @if $auto {
+        &:last-child {
+          padding-#{$direction}: 0;
+        }
+      }
+
+      @else {
+        &:nth-child(#{nth($query, 1)}) {
+          padding-#{$direction}: 0;
+        }
+      }
+    }
+
+    @else {
+      @if $auto {
+        &:last-child {
+          margin-#{$direction}: 0;
+        }
+      }
+
+      @else {
+        @include nth-child(nth($query, 1), $direction);
+      }
+    }
+  }
+
+  @else {
+    @warn "Too many arguments passed to the omega() mixin."
+  }
+}
+
+@mixin nth-child($query, $direction) {
+  $opposite-direction: get-opposite-direction($direction);
+
+  &:nth-child(#{$query}) {
+    margin-#{$direction}: 0;
+  }
+
+  @if type-of($query) == number {
+    &:nth-child(#{$query}+1) {
+      clear: $opposite-direction;
+    }
+  }
+}
+
+
+</body>
+</html>
+

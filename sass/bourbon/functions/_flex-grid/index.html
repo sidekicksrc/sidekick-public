@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title></title>
+
+  <link rel=stylesheet href=/public-site/css/style.css />
+  <link rel="shortcut icon" href="/public-site/shared/img/favicon-32.png">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40226431-2', 'sidekickjs.com');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body class="">
+
+  // Flexible grid
+@function flex-grid($columns, $container-columns: $fg-max-columns) {
+  $width: $columns * $fg-column + ($columns - 1) * $fg-gutter;
+  $container-width: $container-columns * $fg-column + ($container-columns - 1) * $fg-gutter;
+  @return percentage($width / $container-width);
+}
+
+// Flexible gutter
+@function flex-gutter($container-columns: $fg-max-columns, $gutter: $fg-gutter) {
+  $container-width: $container-columns * $fg-column + ($container-columns - 1) * $fg-gutter;
+  @return percentage($gutter / $container-width);
+}
+
+// The $fg-column, $fg-gutter and $fg-max-columns variables must be defined in your base stylesheet to properly use the flex-grid function.
+// This function takes the fluid grid equation (target / context = result) and uses columns to help define each.
+//
+// The calculation presumes that your column structure will be missing the last gutter:
+//
+//   -- column -- gutter -- column -- gutter -- column
+//
+//  $fg-column: 60px;             // Column Width
+//  $fg-gutter: 25px;             // Gutter Width
+//  $fg-max-columns: 12;          // Total Columns For Main Container
+//
+//  div {
+//    width: flex-grid(4);        // returns (315px / 995px) = 31.65829%;
+//    margin-left: flex-gutter(); // returns (25px / 995px) = 2.51256%;
+//
+//    p {
+//      width: flex-grid(2, 4);  // returns (145px / 315px) = 46.031746%;
+//      float: left;
+//      margin: flex-gutter(4);  // returns (25px / 315px) = 7.936508%;
+//    }
+//
+//    blockquote {
+//      float: left;
+//      width: flex-grid(2, 4); // returns (145px / 315px) = 46.031746%;
+//    }
+//  }
+
+</body>
+</html>
+

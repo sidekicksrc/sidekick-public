@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>SidekickJS - Javascript code quality tool</title>
+
+  <link rel=stylesheet href=/public-site/css/style.css />
+  <link rel="shortcut icon" href="/public-site/shared/img/favicon-32.png">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40226431-2', 'sidekickjs.com');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body class="frontpage">
+
+  <nav>
+  <div class=content>
+    <div class=logo>
+      <a href="/">
+        <img src="/public-site/shared/img/large-border-head.svg" height=105 width=90>
+        <h2>Sidekick<span class=lang>JS</span></h2>
+      </a>
+    </div>
+    <div class=links>
+      <a href="http://sidekicksrc.com">Blog</a>
+      <a href="/coffeescript">CoffeeScript</a>
+      <a class="users signup btn" href="/signup">Sign up</a>
+    </div>
+    <a href="/nav" class=toggle >&#9776;</a>
+  </div>
+</nav>
+
+<header>
+  <div class=content>
+    <div class=mast>
+      <h3>Be proud of your team's code</h3>
+      <h1 class=long>SidekickJS tracks code quality to keep your team productive & happy</h1>
+      <a class=signup href="/signup">Start today</a>
+    </div>
+    
+    <span data-picture data-alt="A development team happy their code quality is high, helped by SidekickJS">
+      <span data-src="/public-site/img/top_image.png" data-media="(min-width: 801px)"></span>
+      <span data-src="/public-site/img/top_image_small.png" data-media="(max-width: 800px) AND (min-width: 481px)"></span>
+      <noscript>
+        <img src="/public-site/img/top_image.png" width=600 alt="A development team happy their code quality is high, helped by SidekickJS">
+      </noscript>
+    </span>
+  </div>
+</header>
+
+<div class=main>
+
+  <div class=benefits_testimonials>
+    <div class=content>
+      <section class=benefits>
+        <div class=all>
+          <h2>What does SidekickJS do for you?</h2>
+          <div class=block_list>
+            <div class=benefit>
+              <div class=header>
+                <img class=icon src="/public-site/img/icons/quality.png" alt="Developers love to write great code - challenge them to">
+                <h3>Your team loves a challenge: keep the bar high</h3> 
+              </div>
+              <p class=long>Great teams produce great work. Show you're dedicated to writing great code, and your team will rise to the challenge.</p>
+            </div>
+            <div class=benefit>
+              <div class=header>
+                <img class=icon src="/public-site/img/icons/ego.png" alt="Don't upset people with code review - let objective tools start conversations">
+                <h3>No hurt egos in code-review</h3> 
+              </div>
+              <p class=long>Code-review can feel personal if you pick up on the same issues again and again. Sidekick automatically annotates the easy stuff so you can concentrate on mentoring.</p>
+            </div>
+            <div class=benefit>
+              <div class=header>
+                <img class=icon src="/public-site/img/icons/boss.png" alt="Explain to non-technical people why you need to refactor with an objective measure of code-quality">
+                <h3>Your boss will let you refactor</h3> 
+              </div>
+              <p class=long>Your boss can have a hard time seeing why you should spend time on existing code. Tracking technical debt provides accountability, and gets you your cleanup sprint.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class=testimonials>
+        <div class=testimonial>
+          <div class=header>
+            <img src="/public-site/img/people/rob.png" class=portrait alt="Rob Chandler, Web Developer at Believe.in">
+            <h3>Rob Chandler - Believe.in</h3>
+          </div>
+          <p>Sidekick's Github integration means it fits in with our workflow, and has found technical debt we could have missed without it.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class=features_users>
+    <div class=content>
+      <section class=features>
+        <h2>Features</h2>
+        <div class=block_list>
+          <div class=feature>
+            <img src="/public-site/img/screenshots/repetition.png" >
+            <h3>Repetition detection</h3>
+            <p>Keep your code DRY and you'll not need to fix the same bug twice. SidekickJS's repetition detection is smart enough to see even structural repetition - regardless of the words or formatting.</p>
+          </div>
+          <div class=feature>
+            <img src="/public-site/img/screenshots/complexity.png" >
+            <h3>Complexity analysis</h3>
+            <p>It's sometimes hard to know when your code is complex - metrics flag any areas that are becoming a problem.</p>
+          </div>
+          <div class=feature>
+            <img src="/public-site/img/screenshots/lint.png" >
+            <h3>JSHint</h3>
+            <p>The baseline: keep a house style, and spot potential dangers before they cause bugs.</p>
+          </div>
+          <div class=feature>
+            <img src="/public-site/img/screenshots/todos.png" >
+            <h3>TODO tracking</h3>
+            <p>TODOs and FIXMEs are broken windows - don't let your codebase rot. Track, prioritise and fix.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class=pricing>
+    <div class=content>
+      <h2>Pricing</h2>
+      <div class=services>
+        <div class=service>
+          <h3>Solo</h3>
+          <p class=plan>Up to two active developers</p>
+          <p class=pricing>
+            £7 / month
+          </p>
+          <a href="/plan/solo">Select</a>
+        </div>
+        <div class='service focus'>
+          <h3>Team</h3>
+          <p class=plan>Up to 10 active developers</p>
+          <p class=pricing>
+            £50 / month
+          </p>
+          <a href="/plan/team">Select</a>
+        </div>
+        <div class=service>
+          <h3>Big Team</h3>
+          <p class=plan>Up to 40 active developers</p>
+          <p class=pricing>
+            £275 / month
+          </p>
+          <a href="/plan/big">Select</a>
+        </div>
+        <script>
+        </script>
+      </div>
+      <a class=oss href="/users/sign_up">Open source - free forever!</a>
+    </div>
+  </section>
+</div>
+
+<script src="/public-site/js/picturefill.js"></script>
+<script src="/public-site/js/front.js"></script>
+
+</body>
+</html>
+

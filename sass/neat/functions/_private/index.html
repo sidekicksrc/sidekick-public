@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title></title>
+
+  <link rel=stylesheet href=/public-site/css/style.css />
+  <link rel="shortcut icon" href="/public-site/shared/img/favicon-32.png">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40226431-2', 'sidekickjs.com');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body class="">
+
+  // Checks if a number is even
+@function is-even($int) {
+  @if $int%2 == 0   {
+    @return true;
+  }
+
+  @return false;
+}
+
+// Checks if an element belongs to a list
+@function belongs-to($tested-item, $list) {
+  @each $item in $list {
+    @if $item == $tested-item {
+      @return true;
+    }
+  }
+
+  @return false;
+}
+
+// Contains display value
+@function contains-display-value($query) {
+  @if belongs-to(table, $query) or belongs-to(block, $query) or belongs-to(inline-block, $query) or belongs-to(inline, $query) {
+    @return true;
+  }
+
+  @return false;
+}
+
+// Parses the first argument of span-columns()
+@function container-span($span: $span) {
+  @if length($span) == 3 {
+    $container-columns: nth($span, 3);
+    @return $container-columns;
+  }
+
+  @else if length($span) == 2 {
+    $container-columns: nth($span, 2);
+    @return $container-columns;
+  }
+
+  @else {
+    @return $grid-columns;
+  }
+}
+
+// Generates a striped background
+@function gradient-stops($grid-columns, $color: $visual-grid-color) {
+  $transparent: rgba(0,0,0,0);
+
+  $column-width: flex-grid(1, $grid-columns);
+  $gutter-width: flex-gutter($grid-columns);
+  $column-offset: $column-width;
+
+  $values: ($transparent 0, $color 0);
+
+  @for $i from 1 to $grid-columns*2 {
+    @if is-even($i) {
+      $values: append($values, $transparent $column-offset, comma);
+      $values: append($values, $color $column-offset, comma);
+      $column-offset: $column-offset + $column-width;
+    }
+
+    @else {
+      $values: append($values, $color $column-offset, comma);
+      $values: append($values, $transparent $column-offset, comma);
+      $column-offset: $column-offset + $gutter-width;
+    }
+  }
+
+  @return $values;
+}
+
+// Layout direction
+@function get-direction($layout, $default) {
+  $direction: nil;
+  
+  @if $layout == LTR or $layout == RTL {
+    $direction: direction-from-layout($layout);
+  } @else {
+    $direction: direction-from-layout($default);
+  }
+
+  @return $direction;
+}
+
+@function direction-from-layout($layout) {
+  $direction: nil;
+
+  @if $layout == LTR {
+    $direction: right;
+  } @else {
+    $direction: left;
+  }
+
+  @return $direction;
+}
+
+@function get-opposite-direction($direction) {
+  $opposite-direction: left;
+
+  @if $direction == left {
+    $opposite-direction: right;
+  }
+
+  @return $opposite-direction;
+}
+
+
+</body>
+</html>
+
