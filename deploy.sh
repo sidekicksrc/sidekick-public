@@ -14,22 +14,19 @@ check_deployable() {
 
 deploy() {
   rm -rf output
-  checkout_clean_branch
   compile
-  git add -f output
-  git commit -m 'compiled'
-  git checkout deploy
   create_commit
   git push origin deploy
 }
 
 most_recent_deploy() {
-  git show-ref deploy-staging | awk '{print $2}'
+  `git show-ref deploy-staging | awk '{print $2}'`
 }
 
 create_commit() {
   commit=most_recent_deploy
-  tree=git ls-tree -d | grep -w output | awk '{print $3}'
+  git add -f output
+  tree=`git write-tree --prefix output/`
   parent_opt=""
   if [[ $commit != "" ]]; then
     parent_opt="-p $commit"
