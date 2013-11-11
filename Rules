@@ -27,7 +27,7 @@ end
 route "/sass/style" do
   item.identifier.gsub("/sass/","/css/").chop + ".css"
 end
-route '/sass/_*' do
+route '/sass/*' do
   # ignore
   nil
 end

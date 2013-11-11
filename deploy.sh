@@ -27,6 +27,7 @@ create_commit() {
   commit=`most_recent_deploy`
   added=`git add -f output`
   tree=`git write-tree --prefix output/`
+  git reset
   parent_opt=""
   if [[ $commit != "" ]]; then
     parent_opt="-p $commit"
