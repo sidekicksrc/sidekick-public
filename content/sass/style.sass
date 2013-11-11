@@ -18,6 +18,11 @@ a[href]:hover
 =contrast_link
   color: #fff
 
+.content
+  +outer-container()
+  @media (max-width: 80em)
+    padding-left: 1em
+
 /* front page */
 .frontpage
 
@@ -132,10 +137,6 @@ a[href]:hover
 
   header, .features_users
     background: $grey_area
-  .content
-    +outer-container()
-    @media (max-width: 80em)
-      padding-left: 1em
 
   .features_users
     +row()
@@ -243,3 +244,32 @@ a[href]:hover
       margin-right: 0
       clear: none
 
+.page
+  header
+    background: $contrast
+    color: #fff
+    min-height: $vunit
+    line-height: 2em
+    h1
+      padding-top: 15px
+      margin-top: 0
+    font-size: 2rem
+    +media($small)
+      font-size: 1.25rem
+      h1
+        padding: 25px 0
+    text-align: center
+    margin-bottom: 1em
+
+  article
+    +outer-container()
+
+#docs_front
+  section
+    +row()
+    h2, div
+      +span-columns(6)
+      +media($small)
+        +span-columns(4)
+    h2
+      margin-top: 0

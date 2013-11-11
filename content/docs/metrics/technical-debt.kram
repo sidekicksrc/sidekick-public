@@ -1,0 +1,28 @@
+---
+title: Technical Debt
+resources:
+- text: "Jeff Atwood's 'Metric Maid'"
+  url: http://www.codinghorror.com/blog/2006/09/a-visit-from-the-metrics-maid.html
+---
+
+Technical debt is Sidekick's aggregate measure of potential issues in your code. We aggregate it together so you can get a sense of magnitude of work, compare different components in terms of their debt, and compare the impact of different problems in your code.
+
+## Debt per logical line
+
+It's important in aggregate, but it's also important to track it relative to the size of your codebase.
+
+To do this we capture debt per logical line: that way you can have a huge codebase with a "high debt", but its high quality is captured in the low debt per line.
+
+## Why not grades?
+
+Why a number, as opposed to a grade, for instance A-F? Because our analysis tools are automatic, and you understand your code best. If we can't find problems with it, that doesn't automatically mean it's good code! You could easily have an incredibly complex code base solving a easy problem, which used no algorithm faster than O(N!), and 0 debt. 
+
+A grading system is rife with false positives: it says 'good code here' when it actually means 'I can't see bad code'. 
+
+## Avoiding gaming
+
+Grading also prompts busy work: needlessly fixing tiny bugs to cross an arbitrary line that gives you a perfect "A". Technical debt instead promotes prioritising: if you have a tiny amount of debt in a module, leave it until it becomes a problem.
+
+We feel grading is much more prone to 'gaming' behaviour. Either it sets an artificially high bar (zero issues for A) so people are motivated to fix trivial issues, or it allows problems to go hidden behind a 'perfect' A. 
+
+Technical debt is a simple, honest, easy to understand number. We think it's a fine tool to help you build great software.

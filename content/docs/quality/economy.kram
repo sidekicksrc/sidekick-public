@@ -1,0 +1,28 @@
+---
+title: "Economy"
+layout: post
+resources:
+- text: C2 Wiki - Don't Repeat Yourself
+  url: "http://c2.com/cgi/wiki?DontRepeatYourself"
+- text: Wikipedia - Don't Repeat Yourself
+  url: "http://en.wikipedia.org/wiki/Don't_repeat_yourself"
+- text: "Pragmatic Programmers: DRY"
+  url: http://pragmatictips.com/11
+quick: |
+  Repetition makes our code harder to change, and is a frequent cause of bugs.
+aliases:
+- "Don't repeat yourself"
+- Single point of truth
+acronyms:
+- DRY
+- SPOT
+---
+
+We should aim to solve problems with the least code possible. This means avoiding excessive complication; more obvious and pernicious is repetition. 
+
+We should avoid repetition in our code as it causes two problems:
+
+1. increases effort to make valid changes: we have to make the same change in multiple places
+1. causes bugs if we don't change repeated code everywhere, as some code keeps old behaviour
+
+

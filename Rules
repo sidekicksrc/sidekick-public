@@ -20,9 +20,6 @@ end
 
 require "pry"
 
-preprocess do
-end
-
 
 compile "/sass/style" do
   filter :sass
@@ -43,7 +40,7 @@ route '/coffee/*' do
 end
 
 class Nanoc::RuleContext
-  def post_or_page(item,the_layout = "post")
+  def read_filter_set_layout(item,the_layout = "page")
     if item[:filter]
       filter *item[:filter]
     else
@@ -57,29 +54,8 @@ class Nanoc::RuleContext
   end
 end
 
-compile '/quality/*' do 
-  post_or_page(item,"post")
-end
-compile '/metrics/*' do 
-  post_or_page(item,"post")
-end
-compile '/lint/*' do 
-  post_or_page(item,"post")
-end
-
-compile '/pages/*' do 
-  post_or_page(item,"page")
-end
-compile '/posts/*' do 
-  post_or_page(item)
-end
-
-route '/posts/*' do
-  if item[:published]
-    "/post/#{slug item}/index.html"
-  else
-    nil
-  end
+compile '/docs/*/' do 
+  read_filter_set_layout(item,"doc_page")
 end
 
 route '/pages/*' do
@@ -95,7 +71,7 @@ compile '*' do
     # don’t filter binary items
   else
     filter item[:filter] || :erb
-    layout item[:layout] || 'default'
+    layout item[:layout] || 'plain'
   end
 end
 

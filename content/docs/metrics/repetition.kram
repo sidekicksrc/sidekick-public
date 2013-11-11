@@ -1,0 +1,42 @@
+---
+title: Repetition
+---
+
+Repetition counts the number of structurally duplicated lines. For instance, the below 
+
+
+~~~javascript
+if (err) {
+      res.json({
+        status: "failure",
+        message: err.error + ' - ' + err.reason
+      },500);
+    } else {
+      res.send({
+        status: "success - you are now in queue to receive an invite on our next batch!"
+      });
+    }
+  });
+} else {
+~~~
+
+and
+
+~~~javascript
+if (err) {
+     res.json({
+       status  : "failure",
+       message : err.error + ' - ' + err.reason
+     },500);
+   } else {
+     res.json({
+       status : "success"
+     });
+   }
+ });
+}
+~~~
+
+repeat the same structure, even if some identifiers or literals aren't repeated. This debt is justified by the [redundancy](/quality/economy/#redundancy) it creates in our code.
+
+The debt for a repetition is simply the number of lines duplicated. If you have the same 10 lines 3 times, that counts for 30 debt.

@@ -1,0 +1,24 @@
+---
+title: "Polish"
+---
+
+Quality shows in the little things. Problems in our code seem insignificant can actually suggest to our team that nobody cares about quality: a self-fulfilling prophecy. Consider: would you be more or less likely to commit bad code to a repository with mispellings, inconsistent style and naming, and bad formatting, than a pristine one? A social norm of high-quality code in a team will bring out the best from everyone.
+
+> For you to sleep well at night, the aesthetic, the quality, has to be carried all the way through.
+
+Steve jobs
+
+## Little things
+
+What suggests that a Javascript project is uncared for?
+
+- inconsistency: naming (mixed snake or camel case), formatting (indentation, line breaking style), prototype vs class library
+- ancient TODOs or FIXMEs
+- no tests
+- giant files obviously grown by accretion
+- bad naming - single letter variable names or placeholders (foo, bar, a/b/c)
+- spelling mistakes in identifiers
+
+## Fixing up
+
+Fixing up the small problems above can be a great way of turning around a project. It feels good to make progress against these goals, and suggests to the team that this is a team that cares about code!

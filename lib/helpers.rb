@@ -24,17 +24,22 @@ end
 
 AUTO_URLS = {
   /wikipedia\.org$/ => "Wikipedia",
+  /martinfowler\.com$/ => "Martin Fowler",
   /^c2\.com$/ => "C2 Wiki"
 }
 
-def resource_links resources
+def escape_link str
+  str.gsub('"','\\"')
+end
+
+def resource_links resources, item
   err = "Resources should be a hash or a valid URL from a known source"
   resources.map do |res|
     case res
     when Hash
       begin
         res = Map.new(res)
-        "<a href='#{res.fetch(:url)}'>#{res.fetch(:text)}</a>"
+        "<a href='#{escape_link res.fetch(:url)}'>#{res.fetch(:text)}</a>"
       rescue StandardError => e
         raise err + ": resource has keys #{res.keys}"
       end
@@ -44,9 +49,9 @@ def resource_links resources
         shortcut_name = AUTO_URLS.keys.find do |k|
           k =~ url.hostname
         end
-        "<a href=\"#{res.gsub('"','\\"')}\">#{AUTO_URLS[shortcut_name]}</a>"
+        "<a href=\"#{escape_link res}\">#{AUTO_URLS.fetch(shortcut_name)} - #{item[:title]}</a>"
       rescue StandardError => e
-        throw err + " #{e}"
+        throw err + ", for hostname #{url.hostname} #{e}"
       end
     else
       throw err

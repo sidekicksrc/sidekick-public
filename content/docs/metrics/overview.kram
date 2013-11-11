@@ -1,0 +1,23 @@
+---
+title: "Software Metrics"
+resources:
+- http://martinfowler.com/articles/useOfMetrics.html
+- text: "Jeff Atwood: metrics as 'Software Tricorders'"
+  url: http://www.codinghorror.com/blog/2005/09/managed-code-analysis-tools.html
+- text: "Jeff Atwood's 'Metric Maid'"
+  url: http://www.codinghorror.com/blog/2006/09/a-visit-from-the-metrics-maid.html
+---
+
+Software metrics help us track how well we're doing at meeting our quality goals. They're not the same thing as the goals: they can be incorrect, as they're automatically generated. You understand your software better than the metrics do.
+
+## How to use metrics
+
+That's not to say you shouldn't use them though. They are a fantastic way to highlight potential problems, to keep you honest about your code-quality and to help keep a high quality bar in a team. Just like tests, quality metrics can't help you if you don't use them.
+
+It might seem strange for a metrics service like Sidekick to highlight the limits of metrics. It's not. We believe to be useful they must be understood. The goal is not to make people ['metrics maids'](http://www.codinghorror.com/blog/2006/09/a-visit-from-the-metrics-maid.html), obsessively checking the metrics and annoying their colleagues. Instead, it's to make metrics easy to use, easy to track and highly visible in software teams.
+
+## Metrics hurt feelings... less
+
+Metrics are fantastic for code-review as they're objective. It's not you opinion that a method has a cyclomatic complexity of 34: it's a fact. There might be a good reason for its being so high, but it's always OK to ask someone why that is. The tools are a safe way to start conversations, and a way to ensure you realise when there is a potential problem.
+
+Like all rules there are exceptions: the important to thing is realise *when* you're making an exception, and *why*.

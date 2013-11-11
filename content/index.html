@@ -3,22 +3,7 @@ title: SidekickJS - Javascript code quality tool
 body_class: "frontpage"
 ---
 
-<nav>
-  <div class=content>
-    <div class=logo>
-      <a href="/">
-        <img src="<%= @config[:base_url] %>/shared/img/large-border-head.svg" height=105 width=90>
-        <h2>Sidekick<span class=lang>JS</span></h2>
-      </a>
-    </div>
-    <div class=links>
-      <a href="http://sidekicksrc.com">Blog</a>
-      <a href="/coffeescript">CoffeeScript</a>
-      <a class="users signup btn" href="/signup">Sign up</a>
-    </div>
-    <a href="/nav" class=toggle >&#9776;</a>
-  </div>
-</nav>
+<%= render "partials/nav" %>
 
 <header>
   <div class=content>

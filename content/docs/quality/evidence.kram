@@ -1,0 +1,5 @@
+---
+title: Evidence
+---
+
+Good code is demonstrably good - this normally means it's well tested. When you have a good level of code-coverage you feel a lot more secure about refactoring, adding features or simply deploying.
